@@ -1,6 +1,7 @@
 import {Content} from './content-interface';
+import {throwError} from 'rxjs';
 
-class ContentList {
+export class ContentList {
   private readonly mContents: Content[];
 
   constructor() {
@@ -10,15 +11,16 @@ class ContentList {
   get contents(): Content[] {
     return this.mContents;
   }
+
   add(newContent: Content): void {
-    this.mContents.concat(newContent);
+    this.mContents.push(newContent);
   }
   countContents(): number {
     return this.mContents.length;
   }
   getContentHTML(index: number): string {
     if (index < 0 || index >= this.countContents()) {
-      return '';
+      return '500 error, invalid index.</br>I hope you didn\'t want an actual error, because I couldn\'t figure that out.';
     }
     const content = this.mContents[index];
     const output =
@@ -27,11 +29,12 @@ class ContentList {
         '<p>Author: ' + content.author + '</p>' +
         '<p>ID: ' + content.id + '</p>' +
         '<p>Body: ' + content.body + '</p>' +
-        '<p>Image URL: ' + content.imgUrl ?? 'nil' + '</p>' +
-        '<p>Type: ' + content.type ?? 'nil' + '</p>' +
+        '<p>Image URL: ' + (content.imgUrl ?? 'nil') + '</p>' +
+        '<p>Type: ' + (content.type ?? 'nil') + '</p>' +
         '<p>Tags: </p>' +
         '<ul>' +
-          content.tags?.reduce((a, b) => a + '<li>' + b + '</li>') ?? 'nil' +
+          (content.tags?.reduce((a, b) => a + '<li>' + b + '</li>', '') ?? 'nil') +
         '</ul>';
+    return output;
   }
 }

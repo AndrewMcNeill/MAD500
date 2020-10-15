@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Content} from '../helper-files/content-interface';
 
 @Component({
@@ -7,11 +7,14 @@ import {Content} from '../helper-files/content-interface';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
-
+  @Input() content: Content;
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
+  outputID(): void {
+    console.log(this.content.id);
+  }
 }

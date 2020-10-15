@@ -1,6 +1,10 @@
-<div [innerHTML]="contentList.getContentHTML(0)"></div>
-<div [innerHTML]="contentList.getContentHTML(1)"></div>
-<div [innerHTML]="contentList.getContentHTML(2)"></div>
-
-<br><br>
-<div [innerHTML]="contentList.getContentHTML(3)"></div>
+<h1>{{content.title}}</h1>
+<div *ngIf="content.imgUrl">
+  <img src="{{content.imgUrl}}" (click)="outputID()"/>
+</div>
+<p>Author: {{content.author}}</p>
+<p>{{content.body}}</p>
+<p *ngIf="content.type">Type: {{content.type}}</p>
+<ul *ngIf="content.tags">
+  <li *ngFor="let tag of content.tags">{{tag}}</li>
+</ul>

@@ -1,4 +1,2 @@
 <p>content-list works!</p>
-<div *ngFor="let content of list">
-  <app-content-card [content]="content"></app-content-card>
-</div>
+<app-content-card *ngFor="let content of list" [content]="content"></app-content-card>

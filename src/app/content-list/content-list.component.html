@@ -1,2 +1,18 @@
-<p>content-list works!</p>
-<app-content-card *ngFor="let content of list" [content]="content"></app-content-card>
+<input id="titleInput" /><button (click)="search('Loafers!')">search</button>
+
+<app-content-card
+  *ngFor="let content of (list | contentType: 'Dad joke')"
+  [content]="content"
+  title="{{content.title}}"
+  class="dadJokeContentCard"></app-content-card>
+
+<app-content-card
+  *ngFor="let content of (list | contentType: 'Clothing')"
+  [content]="content"
+  title="{{content.title}}"
+  class="clothingContentCard"></app-content-card>
+
+<app-content-card
+  *ngFor="let content of (list | contentType: 'None')"
+  [content]="content"
+  title="{{content.title}}"></app-content-card>

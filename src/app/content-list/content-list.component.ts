@@ -41,6 +41,7 @@ export class ContentListComponent implements OnInit {
       author: 'Cindy Kehoe',
       body: 'Blah, blah, blah, blah, blah. Blah, blah, blah, blah, blah, blah, blah.',
       id: 3,
+      type: 'None',
       tags: ['look', 'some', 'tags!'],
       title: 'A distinct lack of imagery'});
     this.list.push({
@@ -51,5 +52,22 @@ export class ContentListComponent implements OnInit {
       tags: ['look', 'some', 'tags!'],
       type: 'Clothing',
       title: 'Now in beige!'});
+  }
+
+  search(): void {
+    // @ts-ignore
+    const title = document.getElementById('titleInput').value;
+    const results = this.list.filter(content => content.title === title);
+    if (results.length > 0) {
+      console.log('Content with title "' + title + '" exists.');
+    }
+    const cards = document.getElementsByTagName('app-content-card');
+    for(let i = 0; i < cards.length; i++) {
+      cards[i].classList.remove('searched');
+    }
+    const searchedCards = document.querySelectorAll('app-content-card[title="' + title + '"]');
+    for(let i = 0; i < searchedCards.length; i++) {
+      searchedCards[i].classList.add('searched');
+    }
   }
 }

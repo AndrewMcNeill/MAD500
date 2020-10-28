@@ -1,4 +1,4 @@
-<h1>{{content.title}}</h1>
+<h1 appHoverStyle [style]="'decoration'">{{content.title}}</h1>
 <div *ngIf="content.imgUrl; else imgElse">
   <img src="{{content.imgUrl}}" (click)="outputID()"/>
 </div>
@@ -9,5 +9,5 @@
 <p>{{content.body}}</p>
 <p *ngIf="content.type">Type: {{content.type}}</p>
 <ul *ngIf="content.tags">
-  <li *ngFor="let tag of content.tags">{{tag}}</li>
+  <li appHoverStyle [style]="'weight'" *ngFor="let tag of content.tags">{{tag}}</li>
 </ul>

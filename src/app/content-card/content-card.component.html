@@ -1,7 +1,10 @@
 <h1>{{content.title}}</h1>
-<div *ngIf="content.imgUrl">
+<div *ngIf="content.imgUrl; else imgElse">
   <img src="{{content.imgUrl}}" (click)="outputID()"/>
 </div>
+<ng-template #imgElse>
+  <img src="https://i.postimg.cc/dQRvbpGv/questionmark.jpg" />
+</ng-template>
 <p>Author: {{content.author}}</p>
 <p>{{content.body}}</p>
 <p *ngIf="content.type">Type: {{content.type}}</p>

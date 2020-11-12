@@ -1,4 +1,5 @@
-<app-create-content></app-create-content>
+<app-create-content (newContentEmitter)="addNewContent($event)"></app-create-content><br>
+<span *ngIf="addContentError" style="color:red">Error adding content!</span><br>
 
 <input [(ngModel)]="searchText" /><button (click)="search()">search</button>
 

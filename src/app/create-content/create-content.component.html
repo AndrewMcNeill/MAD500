@@ -1,1 +1,7 @@
-<p>create-content works!</p>
+ID: <input [(ngModel)]="content.id" /><br>
+Title: <input [(ngModel)]="content.title" /><br>
+Author: <input [(ngModel)]="content.author" /><br>
+Image URL: <input [(ngModel)]="content.imgUrl" /><br>
+Body: <input [(ngModel)]="content.body" /><br>
+<button (click)="create()">Add content</button><br>
+<span *ngIf="errorDisplay" style="color:red">Please fill in all fields</span>

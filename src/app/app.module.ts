@@ -8,7 +8,7 @@ import { ContentTypePipe } from './content-type.pipe';
 import { HoverStyleDirective } from './hover-style.directive';
 import { HoverTerminalContentDirective } from './hover-terminal-content.directive';
 import { CreateContentComponent } from './create-content/create-content.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [

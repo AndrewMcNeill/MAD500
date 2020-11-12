@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Content} from '../helper-files/content-interface';
+import {CreateContentComponent} from '../create-content/create-content.component';
 
 @Component({
   selector: 'app-content-list',
@@ -9,6 +10,7 @@ import {Content} from '../helper-files/content-interface';
 export class ContentListComponent implements OnInit {
   list: Content[];
   searchText: string;
+  addContentError = false;
 
   constructor() { }
   // https://postimg.cc/gallery/xqXGvFp
@@ -69,5 +71,25 @@ export class ContentListComponent implements OnInit {
     for (let i = 0; i < searchedCards.length; i++) {
       searchedCards[i].classList.add('searched');
     }
+  }
+
+  addNewContent(content: Content): void {
+    const addContentPromise = new Promise((success, fail) => {
+      this.list.push(content);
+      this.list = Object.assign([], this.list);
+      if (this.list.includes(content)) {
+        success();
+      } else {
+        fail();
+      }
+    });
+    addContentPromise.
+      then(() => {
+        console.log('Content added successfully! ', content.title);
+        this.addContentError = false;
+    }).
+      catch(() => {
+        this.addContentError = true;
+    });
   }
 }

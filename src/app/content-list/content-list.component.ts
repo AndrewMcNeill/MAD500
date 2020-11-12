@@ -8,6 +8,7 @@ import {Content} from '../helper-files/content-interface';
 })
 export class ContentListComponent implements OnInit {
   list: Content[];
+  searchText: string;
 
   constructor() { }
   // https://postimg.cc/gallery/xqXGvFp
@@ -55,18 +56,17 @@ export class ContentListComponent implements OnInit {
   }
 
   search(): void {
-    // @ts-ignore
-    const title = document.getElementById('titleInput').value;
-    const results = this.list.filter(content => content.title === title);
+    // const title = document.getElementById('titleInput').value;
+    const results = this.list.filter(content => content.title === this.searchText);
     if (results.length > 0) {
-      console.log('Content with title "' + title + '" exists.');
+      console.log('Content with title "' + this.searchText + '" exists.');
     }
     const cards = document.getElementsByTagName('app-content-card');
-    for(let i = 0; i < cards.length; i++) {
+    for (let i = 0; i < cards.length; i++) {
       cards[i].classList.remove('searched');
     }
-    const searchedCards = document.querySelectorAll('app-content-card[title="' + title + '"]');
-    for(let i = 0; i < searchedCards.length; i++) {
+    const searchedCards = document.querySelectorAll('app-content-card[title="' + this.searchText + '"]');
+    for (let i = 0; i < searchedCards.length; i++) {
       searchedCards[i].classList.add('searched');
     }
   }

@@ -7,6 +7,8 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { ContentTypePipe } from './content-type.pipe';
 import { HoverStyleDirective } from './hover-style.directive';
 import { HoverTerminalContentDirective } from './hover-terminal-content.directive';
+import { CreateContentComponent } from './create-content/create-content.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { HoverTerminalContentDirective } from './hover-terminal-content.directiv
     ContentListComponent,
     ContentTypePipe,
     HoverStyleDirective,
-    HoverTerminalContentDirective
+    HoverTerminalContentDirective,
+    CreateContentComponent
   ],
-  imports: [
-    BrowserModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,6 @@
-<input id="titleInput" /><button (click)="search()">search</button>
+<app-create-content></app-create-content>
+
+<input [(ngModel)]="searchText" /><button (click)="search()">search</button>
 
 <app-content-card
   *ngFor="let content of (list | contentType: 'Dad joke'); let first = first; let last = last"

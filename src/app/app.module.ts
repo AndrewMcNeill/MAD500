@@ -7,6 +7,7 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { ContentTypePipe } from './content-type.pipe';
 import { HoverStyleDirective } from './hover-style.directive';
 import { HoverTerminalContentDirective } from './hover-terminal-content.directive';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HoverTerminalContentDirective } from './hover-terminal-content.directiv
     ContentListComponent,
     ContentTypePipe,
     HoverStyleDirective,
-    HoverTerminalContentDirective
+    HoverTerminalContentDirective,
+    MessagesComponent
   ],
   imports: [
     BrowserModule

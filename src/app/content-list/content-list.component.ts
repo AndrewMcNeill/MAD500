@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Content} from '../helper-files/content-interface';
 import {CONTENT_LIST} from '../helper-files/contentDb';
 import {ContentService} from '../services/content.service';
+import {MessageService} from '../services/message.service';
 
 @Component({
   selector: 'app-content-list',
@@ -11,13 +12,15 @@ import {ContentService} from '../services/content.service';
 export class ContentListComponent implements OnInit {
   list: Content[];
 
-  constructor(private contentService: ContentService) {
+  constructor(private contentService: ContentService, private messageService: MessageService) {
     this.list = [];
   }
   // https://postimg.cc/gallery/xqXGvFp
 
   ngOnInit(): void {
-    this.contentService.getContentObs().subscribe(content => this.list = content);
+    this.contentService.getContentObs().subscribe(content => {
+      this.list = content;
+    });
   }
 
   search(): void {
@@ -26,6 +29,9 @@ export class ContentListComponent implements OnInit {
     const results = this.list.filter(content => content.title === title);
     if (results.length > 0) {
       console.log('Content with title "' + title + '" exists.');
+      this.messageService.add('Content with title "' + title + '" found.');
+    } else {
+      this.messageService.add('No content with title "' + title + '" could be found.');
     }
     const cards = document.getElementsByTagName('app-content-card');
     for(let i = 0; i < cards.length; i++) {

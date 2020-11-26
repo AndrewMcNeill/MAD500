@@ -9,6 +9,10 @@ import { HoverStyleDirective } from './hover-style.directive';
 import { HoverTerminalContentDirective } from './hover-terminal-content.directive';
 import { MessagesComponent } from './messages/messages.component';
 
+import { HttpClientModule} from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import { InMemoryDataService} from './services/in-memory-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,11 @@ import { MessagesComponent } from './messages/messages.component';
     MessagesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false,
+        delay: 1000 })
   ],
   providers: [],
   bootstrap: [AppComponent]

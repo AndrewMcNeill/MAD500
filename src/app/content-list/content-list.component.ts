@@ -42,4 +42,10 @@ export class ContentListComponent implements OnInit {
       searchedCards[i].classList.add('searched');
     }
   }
+
+  addContent(content: Content): void {
+    this.list.push(content);
+    this.list = Object.assign([], this.list);
+    console.log(this.list);
+  }
 }

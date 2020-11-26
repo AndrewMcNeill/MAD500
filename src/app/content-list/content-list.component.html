@@ -1,5 +1,7 @@
 <input id="titleInput" /><button (click)="search()">search</button>
 
+<app-create-component (contentAdded)="addContent($event)"></app-create-component>
+
 <app-content-card
   *ngFor="let content of (list | contentType: 'Dad joke'); let first = first; let last = last"
   [ngClass]="{ first: first, last: last }"

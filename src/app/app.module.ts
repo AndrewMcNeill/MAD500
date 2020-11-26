@@ -12,6 +12,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { InMemoryDataService} from './services/in-memory-data.service';
+import { CreateComponentComponent } from './create-component/create-component.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,12 @@ import { InMemoryDataService} from './services/in-memory-data.service';
     ContentTypePipe,
     HoverStyleDirective,
     HoverTerminalContentDirective,
-    MessagesComponent
+    MessagesComponent,
+    CreateComponentComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false,

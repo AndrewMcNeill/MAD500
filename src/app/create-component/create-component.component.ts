@@ -13,7 +13,7 @@ export class CreateComponentComponent implements OnInit {
 
   constructor(private contentService: ContentService) {
     this.content = {
-      author: '', body: '', title: ''
+      author: '', body: '', title: '', type: 'None'
     };
   }
 

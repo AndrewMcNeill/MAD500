@@ -46,6 +46,6 @@ export class ContentListComponent implements OnInit {
   addContent(content: Content): void {
     this.list.push(content);
     this.list = Object.assign([], this.list);
-    console.log(this.list);
+    this.messageService.add('Content added');
   }
 }

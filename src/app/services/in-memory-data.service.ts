@@ -9,7 +9,7 @@ import {Content} from '../helper-files/content-interface';
 export class InMemoryDataService implements InMemoryDbService {
 
   // @ts-ignore
-  createDb(reqInfo?: RequestInfo): object {
+  createDb(): object {
     const content: Content[] = [{
       author: 'Name McNameyface',
       body: 'Only in 1 size, footlong.',

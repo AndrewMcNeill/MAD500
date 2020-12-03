@@ -12,13 +12,14 @@ import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { InMemoryDataService} from './services/in-memory-data.service';
-import { CreateComponentComponent } from './create-component/create-component.component';
+import {CreateComponentComponent, CreateDialogComponent} from './create-component/create-component.component';
 import {FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
-import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import {MatOptionModule} from "@angular/material/core";
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatOptionModule} from '@angular/material/core';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatOptionModule} from "@angular/material/core";
     HoverStyleDirective,
     HoverTerminalContentDirective,
     MessagesComponent,
-    CreateComponentComponent
+    CreateComponentComponent,
+    CreateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,11 @@ import {MatOptionModule} from "@angular/material/core";
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    CreateDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

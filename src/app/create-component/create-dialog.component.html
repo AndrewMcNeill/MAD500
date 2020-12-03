@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="content.title">
+  </mat-form-field><br>
+  <mat-form-field>
+    <mat-label>Author</mat-label>
+    <input matInput [(ngModel)]="content.author">
+  </mat-form-field><br>
+  <mat-form-field>
+    <mat-label>Image URL</mat-label>
+    <input matInput [(ngModel)]="content.imgUrl">
+  </mat-form-field><br>
+  <mat-form-field>
+    <mat-label>Type</mat-label>
+    <input matInput
+           [matAutocomplete]="auto"
+           [(ngModel)]="content.type">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option [value]="'None'">None</mat-option>
+      <mat-option [value]="'Dad joke'">Dad joke</mat-option>
+      <mat-option [value]="'Clothing'">Clothing</mat-option>
+    </mat-autocomplete>
+  </mat-form-field><br>
+  <mat-form-field>
+    <mat-label>Body</mat-label>
+    <input matInput [(ngModel)]="content.body">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="accent" (click)="onNoClick()">No Thanks</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="content" cdkFocusInitial>Ok</button>
+</div>

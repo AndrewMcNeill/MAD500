@@ -20,6 +20,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatOptionModule} from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from "@angular/material/icon";
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatInputModule,
     MatButtonModule,
     MatAutocompleteModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    MatTabsModule
   ],
   entryComponents: [
     CreateDialogComponent

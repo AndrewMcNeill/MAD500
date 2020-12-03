@@ -1,26 +1,43 @@
-<input id="titleInput" /><button (click)="search()">search</button>
+<mat-form-field>
+  <mat-label>Title</mat-label>
+  <input matInput id="titleInput">
+</mat-form-field>
+<button mat-button color="primary" (click)="search()">
+  <mat-icon>search</mat-icon>
+</button>
 
 <app-create-component (contentAdded)="addContent($event)"></app-create-component>
 
-<app-content-card
-  *ngFor="let content of (list | contentType: 'Dad joke'); let first = first; let last = last"
-  [ngClass]="{ first: first, last: last }"
-  [content]="content"
-  title="{{content.title}}"
-  appHoverTerminalContent
-  class="dadJokeContentCard"></app-content-card>
+<mat-tab-group>
+  <mat-tab label="Dad joke">
+    <app-content-card
+      *ngFor="let content of (list | contentType: 'Dad joke'); let first = first; let last = last"
+      [ngClass]="{ first: first, last: last }"
+      [content]="content"
+      title="{{content.title}}"
+      appHoverTerminalContent
+      class="dadJokeContentCard"></app-content-card>
+  </mat-tab>
+  <mat-tab label="Clothing">
+    <app-content-card
+      *ngFor="let content of (list | contentType: 'Clothing'); let first = first; let last = last"
+      [ngClass]="{ first: first, last: last }"
+      [content]="content"
+      title="{{content.title}}"
+      appHoverTerminalContent
+      class="clothingContentCard"></app-content-card>
+  </mat-tab>
+  <mat-tab label="None">
+    <app-content-card
+      *ngFor="let content of (list | contentType: 'None'); let first = first; let last = last"
+      [ngClass]="{ first: first, last: last }"
+      [content]="content"
+      title="{{content.title}}"
+      appHoverTerminalContent></app-content-card>
+  </mat-tab>
+</mat-tab-group>
 
-<app-content-card
-  *ngFor="let content of (list | contentType: 'Clothing'); let first = first; let last = last"
-  [ngClass]="{ first: first, last: last }"
-  [content]="content"
-  title="{{content.title}}"
-  appHoverTerminalContent
-  class="clothingContentCard"></app-content-card>
 
-<app-content-card
-  *ngFor="let content of (list | contentType: 'None'); let first = first; let last = last"
-  [ngClass]="{ first: first, last: last }"
-  [content]="content"
-  title="{{content.title}}"
-  appHoverTerminalContent></app-content-card>
+
+
+

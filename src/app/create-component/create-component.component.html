@@ -1,7 +1,29 @@
+<mat-form-field>
+  <mat-label>Title</mat-label>
+  <input matInput [(ngModel)]="content.title">
+</mat-form-field><br>
+<mat-form-field>
+  <mat-label>Author</mat-label>
+  <input matInput [(ngModel)]="content.author">
+</mat-form-field><br>
+<mat-form-field>
+  <mat-label>Image URL</mat-label>
+  <input matInput [(ngModel)]="content.imgUrl">
+</mat-form-field><br>
+<mat-form-field>
+  <mat-label>Type</mat-label>
+  <input matInput
+         [matAutocomplete]="auto"
+         [(ngModel)]="content.type">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option [value]="'None'">None</mat-option>
+    <mat-option [value]="'Dad joke'">Dad joke</mat-option>
+    <mat-option [value]="'Clothing'">Clothing</mat-option>
+  </mat-autocomplete>
 
-Title <input [(ngModel)]="content.title"><br>
-Author <input [(ngModel)]="content.author"><br>
-Image URL <input [(ngModel)]="content.imgUrl"><br>
-Type <input [(ngModel)]="content.type"><br>
-Body <input [(ngModel)]="content.body"><br>
-<button (click)="clickSubmit()">Submit</button>
+</mat-form-field><br>
+<mat-form-field>
+  <mat-label>Body</mat-label>
+  <input matInput [(ngModel)]="content.body">
+</mat-form-field><br>
+<button mat-flat-button color="primary" (click)="clickSubmit()">Submit</button>

@@ -14,6 +14,11 @@ import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { InMemoryDataService} from './services/in-memory-data.service';
 import { CreateComponentComponent } from './create-component/create-component.component';
 import {FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatOptionModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -32,7 +37,11 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false,
-        delay: 1000 })
+        delay: 1000 }),
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
